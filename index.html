@@ -18,10 +18,9 @@
       "data": {"url": "building_inventory.json"},
       "mark": "bar",
       "encoding": {
-        "x": {"field": "Year Acquired", "type": "temporal", "axis": {"title": "Year Acquired"}},
+        "x": {"field": "Year Acquired", "type": "ordinal", "axis": {"title": "Year Acquired"}, "scale": {"type": "band"}},
         "y": {"aggregate": "sum", "field": "Square Footage", "type": "quantitative", "axis": {"title": "Total Square Footage"}},
-        "color": {"field": "Agency Name", "type": "nominal", "legend": null},
-        "detail": {"field": "Agency Name", "type": "nominal"}
+        "color": {"field": "Agency Name", "type": "nominal", "legend": null}
       },
       "config": {"view": {"height": 400, "width": 500}},
       "title": {"text": "Square footage for the five most common departments as a function of year", "fontSize": 18}
