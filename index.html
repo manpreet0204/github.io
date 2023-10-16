@@ -15,15 +15,15 @@
     // Your Vega-Lite specification
     const vegaLiteSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "data": {"url": "building_inventory.json"},
-      "mark": "bar",
+      "data": {"url": "building_inventory.json"}, // Replace with your actual data URL
+      "mark": "line",
       "encoding": {
-        "x": {"field": "Year Acquired", "type": "ordinal"},
-        "y": {"field": "Square Footage", "type": "quantitative", "aggregate": "sum"},
-        "color": {"field": "Agency Name", "type": "nominal"}
+        "x": {"field": "Congress Dist", "type": "ordinal", "axis": {"title": "Congress District"}},
+        "y": {"field": "Square Footage", "type": "quantitative", "aggregate": "sum", "axis": {"title": "Total Square Footage"}},
+        "color": {"value": "blue"} // Set color to blue
       },
       "config": {"view": {"height": 400, "width": 500}},
-      "title": {"text": "Square footage for the five most common departments as a function of year", "fontSize": 18}
+      "title": {"text": "Total square footage as a function of congressional district", "fontSize": 18}
     };
 
     // Embed the visualization in the "vis" div
