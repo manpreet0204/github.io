@@ -6,23 +6,24 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <title>Simple Bar Chart</title>
+  <title>Vega-Lite Building Inventory Visualization</title>
 </head>
 <body>
   <div id="vis"></div>
 
   <script>
-    // Your simplified Vega-Lite specification
+    // Your Vega-Lite specification
     const vegaLiteSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "data": {"url": "building_inventory.json"},
       "mark": "bar",
       "encoding": {
         "x": {"field": "Year Acquired", "type": "ordinal"},
-        "y": {"aggregate": "count"}
+        "y": {"field": "Square Footage", "type": "quantitative", "aggregate": "sum"},
+        "color": {"field": "Agency Name", "type": "nominal"}
       },
       "config": {"view": {"height": 400, "width": 500}},
-      "title": {"text": "Simple Bar Chart", "fontSize": 18}
+      "title": {"text": "Square footage for the five most common departments as a function of year", "fontSize": 18}
     };
 
     // Embed the visualization in the "vis" div
